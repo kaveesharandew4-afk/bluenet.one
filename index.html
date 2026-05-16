@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Darknet.one | Free VPN Configs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#00f7ff33,transparent 30%),
+    radial-gradient(circle at bottom right,#8a2eff33,transparent 30%);
+    z-index:-1;
+}
+
+/* Navbar */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.05);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#00f7ff;
+    text-shadow:0 0 10px #00f7ff;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00f7ff;
+}
+
+/* Hero */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:60px;
+    color:#00f7ff;
+    text-shadow:0 0 20px #00f7ff;
+}
+
+.hero p{
+    margin-top:15px;
+    color:#ccc;
+    max-width:700px;
+}
+
+.hero button{
+    margin-top:30px;
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(45deg,#00f7ff,#8a2eff);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 20px #00f7ff;
+}
+
+.hero button:hover{
+    transform:scale(1.05);
+}
+
+/* Stats */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:20px 8%;
+}
+
+.stat-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,247,255,0.2);
+}
+
+.stat-card h2{
+    color:#00f7ff;
+    font-size:35px;
+}
+
+/* Config Section */
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-top:50px;
+    color:#00f7ff;
+}
+
+.configs{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    padding:50px 8%;
+}
+
+.card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    padding:25px;
+    backdrop-filter:blur(12px);
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(0,247,255,0.3);
+}
+
+.card h3{
+    color:#00f7ff;
+    margin-bottom:10px;
+}
+
+.protocol{
+    display:inline-block;
+    padding:5px 12px;
+    background:#8a2eff;
+    border-radius:30px;
+    font-size:13px;
+    margin-top:10px;
+}
+
+.status{
+    margin-top:15px;
+    color:#00ff88;
+}
+
+.config-text{
+    background:#0b1025;
+    padding:12px;
+    border-radius:12px;
+    margin-top:15px;
+    font-size:13px;
+    word-break:break-all;
+    color:#ddd;
+}
+
+.copy-btn{
+    margin-top:20px;
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(45deg,#00f7ff,#8a2eff);
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.copy-btn:hover{
+    opacity:0.9;
+}
+
+/* Join Buttons */
+
+.join{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.join a{
+    text-decoration:none;
+    margin:10px;
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:40px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.join a:hover{
+    background:#00f7ff;
+    color:black;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    margin-top:50px;
+    color:#bbb;
+}
+
+/* Popup */
+
+.popup{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#00f7ff;
+    color:black;
+    padding:15px 25px;
+    border-radius:15px;
+    font-weight:600;
+    display:none;
+    box-shadow:0 0 20px #00f7ff;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:40px;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav>
+    <div class="logo">Darknet.one</div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Configs</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+    <h1>Free VPN Configurations</h1>
+
+    <p>
+        Share and copy premium VPN configurations freely.
+        Fast servers, secure protocols, and stylish cyber UI.
+    </p>
+
+    <button>Get Free Configs</button>
+</section>
+
+<!-- Stats -->
+
+<section class="stats">
+
+    <div class="stat-card">
+        <h2>250+</h2>
+        <p>Total Configs</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>48</h2>
+        <p>Active Servers</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>1.2K</h2>
+        <p>Online Users</p>
+    </div>
+
+</section>
+
+<h2 class="section-title">VPN Configs</h2>
+
+<!-- Config Cards -->
+
+<section class="configs">
+
+    <div class="card">
+        <h3>🇸🇬 Singapore Server</h3>
+
+        <span class="protocol">VLESS</span>
+
+        <div class="status">● Online - Ping 25ms</div>
+
+        <div class="config-text" id="config1">
+vless://example-server-config-123
+        </div>
+
+        <button class="copy-btn" onclick="copyConfig('config1')">
+            Copy Config
+        </button>
+    </div>
+
+    <div class="card">
+        <h3>🇺🇸 USA Server</h3>
+
+        <span class="protocol">VMESS</span>
+
+        <div class="status">● Online - Ping 48ms</div>
+
+        <div class="config-text" id="config2">
+vmess://example-vmess-config-456
+        </div>
+
+        <button class="copy-btn" onclick="copyConfig('config2')">
+            Copy Config
+        </button>
+    </div>
+
+    <div class="card">
+        <h3>🇯🇵 Japan Server</h3>
+
+        <span class="protocol">Trojan</span>
+
+        <div class="status">● Online - Ping 33ms</div>
+
+        <div class="config-text" id="config3">
+trojan://example-trojan-config-789
+        </div>
+
+        <button class="copy-btn" onclick="copyConfig('config3')">
+            Copy Config
+        </button>
+    </div>
+
+</section>
+
+<!-- Join -->
+
+<section class="join">
+
+    <a href="#">Join Telegram</a>
+    <a href="#">Join WhatsApp</a>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+    Developed by Darknet.one
+</footer>
+
+<!-- Popup -->
+
+<div class="popup" id="popup">
+    Config Copied Successfully!
+</div>
+
+<script>
+
+function copyConfig(id){
+
+    const text = document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(text);
+
+    const popup = document.getElementById('popup');
+
+    popup.style.display = 'block';
+
+    setTimeout(() => {
+        popup.style.display = 'none';
+    },2000);
+}
+
+</script>
+
+</body>
+</html>
